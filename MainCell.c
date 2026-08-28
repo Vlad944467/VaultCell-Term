@@ -436,6 +436,7 @@ int main () {
     printf("2 - Писать текст\n"); 
     printf("3 - Терминал\n");
     printf("4 - Выйти\n");
-    printf("\n");    
-    input_(); 
+    printf("\n");
+    input_();
+    free(Minp1);free(Minp2);free(Minp3);  
 }
