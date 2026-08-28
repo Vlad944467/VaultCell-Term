@@ -1,5 +1,5 @@
 # CellVault
 
-![Логотип](Screenshot_20260828-140437.jpg)
+![Логотип](image/Screenshot_20260828-140437.jpg)
 
-![Фото](Screenshot_20260828-143636.jpg)
+![Фото](image/Screenshot_20260828-143636.jpg)
