@@ -1,4 +1,4 @@
-# CellVault
+# VaultCell-Term
 
 ![Логотип](image/Screenshot_20260828-140437.jpg)
 
