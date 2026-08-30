@@ -20,24 +20,19 @@
 /*они в виртуальной памяти.*/
 char inp1[CELL_SIZE];char inp2[CELL_SIZE];
 char inp3[CELL_SIZE];
-// ============================================
-// ВТОРИЧНЫЕ ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ
-// ============================================
-
 // Для команд
 char ex[250];
 
-// КНИГИ (Bcell)
+// (Bcell)
 char book1[100];char author1[60];char year1[30];
 char Binp1[10000000];char book2[100];
 char author2[60];char year2[30];char Binp2[10000000];
 
-// ПАРОЛИ (Pass)
+// (Pass)
 char site1[100];char login1[60];char password1[60];
 
 char site2[100];char login2[60];char password2[60];
 
-// Книги
 char book1[100], author1[60], year1[30];
 char book2[100], author2[60], year2[30];
 char Binp1[10000000], Binp2[10000000];
@@ -57,6 +52,45 @@ void logo () {
     pr(BCYAN);printf("\nStatic/Dynamic hybrid cell storage\n\n");pr(RES);
 }
 
+char input[6000001];
+void IDE() {
+    int ch;
+    int ch_inp;
+    printf("1 - Писать код\n");
+    printf("2 - Компелировать\n");
+    printf("3 - Выход\n");
+    while(1) {
+        scanf("%d",&ch);
+        switch (ch) {
+            case 1:
+                printf("Пишите:\n");
+                scanf("%6000000s",input);
+                printf("Код сохранен\n");
+                break;
+            case 2:
+                printf("10 - Компелировать и запускать\n");
+                printf("20 - Выход\n\n");
+                while (1) {
+                    scanf("%d",&ch_inp);
+                    if (ch_inp == 10) {
+                       FILE *f = fopen("main.c","w");
+                       if (f == NULL) {
+                           printf("Ошибка создание файла\n");
+                           break;
+                       }
+                       fprintf(f, "%s", input);
+                       fclose(f);
+                       printf("Файл создан\n");
+                       system("gcc main.c -o main 2>&1");
+                       system("./main");
+                    }
+                    if (ch_inp == 20) { break; }
+                }
+                break;
+            case 3: return;
+        }
+    }
+}
 void input_ () {
     int ch_i, ch_view, cls, inp_num, cls_all;
     char term[250], ch_w[250], ex2[250], i_save[250], Fch[250];
@@ -71,6 +105,9 @@ void input_ () {
                 break;
             case 6:
                 Bcell_();
+                break;
+            case 7:
+                IDE();
                 break;
             case 1:
                 printf("\n%s - Смотреть ячейку один\n",cname[0]);printf("%s - Смотреть ячейку два\n",cname[1]);
@@ -473,6 +510,7 @@ int main () {
     printf("4 - Выйти\n");
     printf("5 - pass\n");
     printf("6 - Bcell\n");
+    printf("7 - IDE\n");
     input_();
     free(Minp1);free(Minp2);free(Minp3);
 }
