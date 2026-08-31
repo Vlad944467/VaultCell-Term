@@ -20,19 +20,12 @@
 /*они в виртуальной памяти.*/
 char inp1[CELL_SIZE];char inp2[CELL_SIZE];
 char inp3[CELL_SIZE];
-// Для команд
 char ex[250];
-
-// (Bcell)
 char book1[100];char author1[60];char year1[30];
 char Binp1[10000000];char book2[100];
 char author2[60];char year2[30];char Binp2[10000000];
-
-// (Pass)
 char site1[100];char login1[60];char password1[60];
-
 char site2[100];char login2[60];char password2[60];
-
 char book1[100], author1[60], year1[30];
 char book2[100], author2[60], year2[30];
 char Binp1[10000000], Binp2[10000000];
@@ -47,8 +40,8 @@ void logo () {
     printf("\\ \\   / / \n");
     printf(" \\ \\_/ /  \n");
     printf("  \\___/  \n\n");
-    pr(BGREEN);printf("CellVault\n");pr(RES);
-    pr(BRED);pr("_______________\n\n");pr(RES);
+    pr(BGREEN);printf("VaultCell-Term\n");pr(RES);
+    pr(BRED);pr("════════════════════\n\n");pr(RES);
     pr(BCYAN);printf("\nStatic/Dynamic hybrid cell storage\n\n");pr(RES);
 }
 
@@ -56,17 +49,41 @@ char input[6000001];
 void IDE() {
     int ch;
     int ch_inp;
+    pr(BGREEN);
+    printf("════════════════════\n");
     printf("1 - Писать код\n");
     printf("2 - Компелировать\n");
     printf("3 - Выход\n");
+    printf("4 - Информация\n");
+    printf("═════════════════════\n");
+    pr(RES);
     while(1) {
         scanf("%d",&ch);
         switch (ch) {
             case 1:
                 printf("Пишите:\n");
-                scanf("%6000000s",input);
+                printf("--------------------\n\n");
+                input[0] = 0;  // очищаем
+                char line[1000];
+                while (1) {
+                    fgets(line, sizeof(line), stdin);
+                    if (strcmp(line, "END\n") == 0) break;
+                    strcat(input, line);
+                }
+                printf("--------------------\n\n");
                 printf("Код сохранен\n");
                 break;
+            case 4:
+                pr(BRED);
+                pr("Для того чтоб писать и компелировать код\n");
+                pr("выйдите обратно в меню IDE, потом выберите 1\n");
+                pr("и там пишите свой C код, напишите END и \n");
+                pr("нажмите enter, теперь напишите 2, и\n");
+                pr("выберите 10, код скомпелируется и запустится\n\n");
+                pr(RES);pr("EXIT - Выход\n");
+                char exch[10];
+                scanf("%9s", exch);
+                if(strcmp(exch,"EXIT")==0){ break;}
             case 2:
                 printf("10 - Компелировать и запускать\n");
                 printf("20 - Выход\n\n");
@@ -75,7 +92,9 @@ void IDE() {
                     if (ch_inp == 10) {
                        FILE *f = fopen("main.c","w");
                        if (f == NULL) {
+                           pr(BRED);
                            printf("Ошибка создание файла\n");
+                           pr(RES);
                            break;
                        }
                        fprintf(f, "%s", input);
@@ -100,15 +119,10 @@ void input_ () {
     while (1) {
         scanf("%d", &inp_num);
         switch (inp_num) {
-            case 5:
-                pass();
-                break;
-            case 6:
-                Bcell_();
-                break;
-            case 7:
-                IDE();
-                break;
+            case 5:pass();break;
+            case 6:Bcell_();break;
+            case 7:IDE();break;
+            case 8:number ();break;
             case 1:
                 printf("\n%s - Смотреть ячейку один\n",cname[0]);printf("%s - Смотреть ячейку два\n",cname[1]);
                 printf("%s - Смотреть ячейку три\n",cname[2]);printf("%s - Смотреть malloc ячейку один\n",cname[3]);
@@ -511,6 +525,7 @@ int main () {
     printf("5 - pass\n");
     printf("6 - Bcell\n");
     printf("7 - IDE\n");
+    printf("8 - Lcell\n\n");
     input_();
     free(Minp1);free(Minp2);free(Minp3);
 }
