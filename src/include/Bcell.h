@@ -11,5 +11,6 @@ extern char Binp1[10000000];
 extern char Binp2[10000000];
 
 void Bcell_();
+void number ();
 
 #endif
