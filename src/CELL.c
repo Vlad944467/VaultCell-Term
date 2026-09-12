@@ -23,26 +23,24 @@ char inp1[CELL_SIZE];char inp2[CELL_SIZE];
 char inp3[CELL_SIZE];
 char ex[250];
 char book1[100];char author1[60];char year1[30];
-char Binp1[10000000];char book2[100];
+char Binp1[10000000];
 char author2[60];char year2[30];char Binp2[10000000];
 char site1[100];char login1[60];char password1[60];
 char site2[100];char login2[60];char password2[60];
-char book1[100], author1[60], year1[30];
-char book2[100], author2[60], year2[30];
-char Binp1[10000000], Binp2[10000000];
+char book2[100];
 /*--------------------*/
 /*А здесь уже malloc память*/
-char site1[100], login1[60], password1[60];
-char site2[100], login2[60], password2[60];
 char *Minp1; char *Minp2; char *Minp3;
-char ex[250];
 void opf() {
     char opch[250];
     char text[10000];
-
+    system("clear");
+    pr(BRED);for(int i=0;i<80;i++) {printf("█");}pr(RES);
     printf("Введите имя файла: ");
     scanf("%249s", opch);
     getchar();
+    system("clear");
+    pr(BRED);for(int i=0;i<80;i++) {printf("█");}pr(RES);
     FILE *f = fopen(opch, "a");
     if (f == NULL) {
         printf("Ошибка открытия файла!\n");
@@ -95,13 +93,17 @@ void IDE() {
                 printf("Код сохранен\n");
                 break;
             case 4:
+                system("clear");
+                for(int i=0;i<80;i++) {printf("█");}
                 pr(BRED);
+                pr("\n───────────────────────────────────────────────\n");
                 pr("Для того чтоб писать и компелировать код\n");
                 pr("выйдите обратно в меню IDE, потом выберите 1\n");
                 pr("и там пишите свой C код, напишите END и \n");
                 pr("нажмите enter, теперь напишите 2, и\n");
                 pr("выберите 10, код скомпелируется и запустится\n\n");
                 pr(RES);pr("EXIT - Выход\n");
+                pr("───────────────────────────────────────────────");
                 char exch[10];
                 scanf("%9s", exch);
                 if(strcmp(exch,"EXIT")==0){ break;}
@@ -147,6 +149,9 @@ void input_ () {
             case 9:inter ();break;
             case 10:opf ();break;
             case 1:
+                system("clear");
+                pr(BGREEN)
+                ;for(int i=0;i<80;i++) {printf("█");}pr(RES);
                 printf("\n%s - Смотреть ячейку один\n",cname[0]);printf("%s - Смотреть ячейку два\n",cname[1]);
                 printf("%s - Смотреть ячейку три\n",cname[2]);printf("%s - Смотреть malloc ячейку один\n",cname[3]);
                 printf("%s - Смотреть malloc ячейку два\n",cname[4]);printf("%s - Смотреть malloc ячейку три\n",cname[5]);
@@ -258,6 +263,8 @@ void input_ () {
                 break;
             case 4: return;
             case 2:
+                system("clear");
+                pr(BGREEN);for(int i=0;i<80;i++) {printf("█");}pr(RES);
                 printf("\n1 - Написать в ячейку %s\n",cname[0]);printf("2 - Напистаь в ячейку %s\n",cname[1]);
                 printf("3 - Написать в ячейку %s\n",cname[2]);printf("4 - Написать в malloc ячейку %s\n",cname[3]);
                 printf("5 - Написать в malloc ячейку %s\n",cname[4]);printf("6 - Написать в malloc ячейку %s\n\n",cname[5]);
@@ -541,18 +548,19 @@ int main () {
     if (Minp3==NULL){printf("Ошибка\n");free(Minp1);free(Minp2);
         Minp1=NULL;Minp2=NULL;exit(1);
     }
-    puts("════════════════════");
-    puts("1 - Смотреть");
-    puts("2 - Писать текст");
-    puts("3 - Терминал");
-    puts("4 - Выйти");
-    puts("5 - pass");
-    puts("6 - Bcell");
-    puts("7 - IDE, new file");
-    puts("8 - Lcell");
-    puts("9 - SIL");
-    puts("10 - Create a new file");
+    system("clear");
+    puts("\n╔════════════════════╗");
+    puts("║1 - Смотреть");
+    puts("║2 - Писать текст");
+    puts("║3 - Терминал");
+    puts("║4 - Выйти");
+    puts("║5 - pass");
+    puts("║6 - Bcell");
+    puts("║7 - IDE, new file");
+    puts("║8 - Lcell");
+    puts("║9 - SIL");
+    puts("║10 - Create a new file");
+    puts("╚════════════════════╝");
     input_();
-    puts("════════════════════");
     free(Minp1);free(Minp2);free(Minp3);
 }
