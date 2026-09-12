@@ -36,6 +36,28 @@ char site1[100], login1[60], password1[60];
 char site2[100], login2[60], password2[60];
 char *Minp1; char *Minp2; char *Minp3;
 char ex[250];
+void opf() {
+    char opch[250];
+    char text[10000];
+
+    printf("Введите имя файла: ");
+    scanf("%249s", opch);
+    getchar();
+    FILE *f = fopen(opch, "a");
+    if (f == NULL) {
+        printf("Ошибка открытия файла!\n");
+        return;
+    }
+        printf("Введите текст (напишите END для завершения):\n");
+    while (1) {
+        fgets(text, sizeof(text), stdin);
+        if (strcmp(text, "END\n") == 0) break;
+        fprintf(f, "%s", text);
+    }
+
+    fclose(f);
+    printf("Записано в %s\n", opch);
+}
 void logo () {
     printf("__     __ \n");
     printf("\\ \\   / / \n");
@@ -43,9 +65,7 @@ void logo () {
     printf("  \\___/  \n\n");
     pr(BGREEN);printf("VaultCell-Term\n");pr(RES);
     pr(BRED);pr("════════════════════\n\n");pr(RES);
-    pr(BCYAN);printf("\nStatic/Dynamic hybrid cell storage\n\n");pr(RES);
 }
-
 char input[6000001];
 void IDE() {
     int ch;
@@ -125,6 +145,7 @@ void input_ () {
             case 7:IDE();break;
             case 8:number ();break;
             case 9:inter ();break;
+            case 10:opf ();break;
             case 1:
                 printf("\n%s - Смотреть ячейку один\n",cname[0]);printf("%s - Смотреть ячейку два\n",cname[1]);
                 printf("%s - Смотреть ячейку три\n",cname[2]);printf("%s - Смотреть malloc ячейку один\n",cname[3]);
@@ -499,7 +520,7 @@ void input_ () {
                             case 6: Minp3[0] = 0;break;
                             case 7:break;
                             default:
-                                printf("Неизвестная ячейка\n");
+                                puts("Неизвестная ячейка");
                                 break;
                         }
                     }
@@ -520,15 +541,18 @@ int main () {
     if (Minp3==NULL){printf("Ошибка\n");free(Minp1);free(Minp2);
         Minp1=NULL;Minp2=NULL;exit(1);
     }
-    printf("1 - Смотреть\n");
-    printf("2 - Писать текст\n");
-    printf("3 - Терминал\n");
-    printf("4 - Выйти\n");
-    printf("5 - pass\n");
-    printf("6 - Bcell\n");
-    printf("7 - IDE\n");
-    printf("8 - Lcell\n");
-    printf("9 - SIL\n");
+    puts("════════════════════");
+    puts("1 - Смотреть");
+    puts("2 - Писать текст");
+    puts("3 - Терминал");
+    puts("4 - Выйти");
+    puts("5 - pass");
+    puts("6 - Bcell");
+    puts("7 - IDE, new file");
+    puts("8 - Lcell");
+    puts("9 - SIL");
+    puts("10 - Create a new file");
     input_();
+    puts("════════════════════");
     free(Minp1);free(Minp2);free(Minp3);
 }
