@@ -1,3 +1,4 @@
+#include "in.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -123,6 +124,7 @@ void input_ () {
             case 6:Bcell_();break;
             case 7:IDE();break;
             case 8:number ();break;
+            case 9:inter ();break;
             case 1:
                 printf("\n%s - Смотреть ячейку один\n",cname[0]);printf("%s - Смотреть ячейку два\n",cname[1]);
                 printf("%s - Смотреть ячейку три\n",cname[2]);printf("%s - Смотреть malloc ячейку один\n",cname[3]);
@@ -525,7 +527,8 @@ int main () {
     printf("5 - pass\n");
     printf("6 - Bcell\n");
     printf("7 - IDE\n");
-    printf("8 - Lcell\n\n");
+    printf("8 - Lcell\n");
+    printf("9 - SIL\n");
     input_();
     free(Minp1);free(Minp2);free(Minp3);
 }
