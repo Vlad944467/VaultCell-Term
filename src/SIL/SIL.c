@@ -176,7 +176,7 @@ void inter() {
             case 2:
                 int fi;
                 puts("Файл должен называтся programm.siv\n");
-                scanf("%d",&fi);
+                scanf(" %d",&fi);
                 if(fi==1){
     			    FILE *f = fopen("programm.siv","r");
                     if(!f){
