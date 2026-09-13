@@ -150,7 +150,7 @@ void input_ () {
             case 10:opf ();break;
             case 1:
                 system("clear");
-                pr(BGREEN)
+                pr(BGREEN);
                 ;for(int i=0;i<80;i++) {printf("█");}pr(RES);
                 printf("\n%s - Смотреть ячейку один\n",cname[0]);printf("%s - Смотреть ячейку два\n",cname[1]);
                 printf("%s - Смотреть ячейку три\n",cname[2]);printf("%s - Смотреть malloc ячейку один\n",cname[3]);
