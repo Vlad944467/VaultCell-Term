@@ -1,0 +1,11 @@
+*[ Пример
+mov a 5
+mov b 3
+add a 2
+int_print a
+sub b 1
+int_print b
+mul_num 6 7
+str name Hello
+print_str name
+dump
