@@ -61,7 +61,7 @@ void div_num() {
     printf("%d\n", result);
 }
 void raz() {
-    sscanf(s, "%s %s %s %s %s", arg1,arg2,arg3,arg4,arg5);
+    sscanf(s, "%19s %19s %19s %19s %19s", arg1,arg2,arg3,arg4,arg5);
     if(strcmp(arg1,word[0])==0){//mov
         mov();
     }else if(strcmp(arg1,word[1])==0){//add
@@ -96,7 +96,7 @@ void raz() {
     printf("%f\n",fval[idx]);
     }else if(strcmp(arg1,word[16]) == 0) {
     int idx = arg2[0] - 'a';
-    fval[idx] = fval[idx] - atof(arg3);
+    fval[idx] = fval[idx] + atof(arg3);
     }else if(strcmp(arg1,word[14]) == 0) {
     int idx = arg2[0] - 'a';
     cval[idx] = arg3[0];
@@ -108,12 +108,10 @@ void raz() {
     printf("%zu\n",strlen(strings[idx]));
     }else if(strcmp(arg1,word[18]) == 0) {
     int idx = arg2[0] - 'a';
-    scanf("%d", &values[idx]); 
-    getchar();                   
+    scanf(" %d", &values[idx]);                  
     }else if(strcmp(arg1,word[19]) == 0) {
     int idx = arg2[0] - 'a';
-    scanf("%s", strings[idx]);
-    getchar();                    
+    scanf(" %s", strings[idx]);                    
     }else if(strcmp(arg1,word[20]) == 0) {
     int idx = arg2[0] - 'a';
     values[idx] = values[idx] - 1;
@@ -138,15 +136,10 @@ void raz() {
         }
     }else if(strcmp(arg1,word[25]) == 0) {
     int idx = arg2[0] - 'a';
-    scanf("%f", &fval[idx]);   
-    getchar();
+    scanf(" %f", &fval[idx]);
     }else if(strcmp(arg1,word[26]) == 0) {
     int idx = arg2[0] - 'a';
-    scanf("%c", &cval[idx]);   
-    getchar();
-    }else if(strcmp(arg1, "fadd") == 0) {
-    int idx = arg2[0] - 'a';
-    fval[idx] = fval[idx] + atof(arg3);
+    scanf(" %c", &cval[idx]);   
     }else if(strcmp(arg1, "cmp") == 0) {
     int idx1 = arg2[0] - 'a';
     int idx2 = arg3[0] - 'a';
@@ -167,8 +160,7 @@ void inter() {
     puts("2 - to run");
     puts("3 - help\n");
     while (1) {
-        scanf("%d",&ch);
-        getchar();
+        scanf(" %d",&ch);
         switch (ch) {
             case 1:
                 puts("———————————————————");
