@@ -24,37 +24,64 @@ const char *word[] = {
     "savev","loadv",
     "inputf","inputc"
 };
-void raz() {
-    sscanf(s, "%s %s %s %s %s", arg1,arg2,arg3,arg4,arg5);
-    if(strcmp(arg1,word[0])==0){
+void mov(){
     int idx = arg2[0] - 'a';
     values[idx] = atoi(arg3);
-    }else if(strcmp(arg1,word[1])==0){
+}
+void add(){
     int idx = arg2[0] - 'a';
     values[idx] = values[idx] + atoi(arg3);
-    }else if(strcmp(arg1,word[2])==0){
-    int idx = arg2[0] - 'a';
-    values[idx] = values[idx] - atoi(arg3);
-    }else if(strcmp(arg1,word[3])==0){
+}
+void INT_print(){
     int idx = arg2[0] - 'a';
     printf("%d\n",values[idx]);
-    }else if(strcmp(arg1,word[4])==0){
-    printf("%s\n",s+7);
-    }else if(strcmp(arg1,word[5]) == 0) {
+}
+void sub(){
+    int idx = arg2[0] - 'a';
+    values[idx] = values[idx] - atoi(arg3);
+}
+void add_num() {
     int result = atoi(arg2) + atoi(arg3);
     printf("%d\n", result);
-    }else if(strcmp(arg1,word[6]) == 0) {
+}
+void subt_num(){
     int result = atoi(arg2) - atoi(arg3);
     printf("%d\n", result);
-    }else if(strcmp(arg1, word[7]) == 0) {
+}
+void clear() {
     int idx = arg2[0] - 'a';
     values[idx] = 0;
-    }else if(strcmp(arg1,word[8]) == 0) {
+}
+void mul_num() {
     int result = atoi(arg2) * atoi(arg3);
     printf("%d\n", result);
-    }else if(strcmp(arg1,word[9]) == 0) {
+}
+void div_num() {
     int result = atoi(arg2) / atoi(arg3);
     printf("%d\n", result);
+}
+void raz() {
+    sscanf(s, "%s %s %s %s %s", arg1,arg2,arg3,arg4,arg5);
+    if(strcmp(arg1,word[0])==0){//mov
+        mov();
+    }else if(strcmp(arg1,word[1])==0){//add
+        add();
+    }else if(strcmp(arg1,word[2])==0){//sub
+        sub();
+    }else if(strcmp(arg1,word[3])==0){//int_print
+        INT_print();
+    }else if(strcmp(arg1,word[4])==0){//print_c
+    printf("%s\n",s+7);
+    }else if(strcmp(arg1,word[5]) == 0) {//add_num
+        add_num();
+    }else if(strcmp(arg1,word[6]) == 0) {//subt_num
+        subt_num();
+    }else if(strcmp(arg1, word[7]) == 0) {//clear
+        clear();
+    }else if(strcmp(arg1,word[8]) == 0) {//mul_num
+        mul_num();
+    }else if(strcmp(arg1,word[9]) == 0) {//div_num
+        div_num();
     }else if(strcmp(arg1,word[10]) == 0) {
     int idx = arg2[0] - 'a';
     strcpy(strings[idx], arg3);
