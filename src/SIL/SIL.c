@@ -18,7 +18,7 @@ const char *word[] = {
     "str","print_str",
     "fmov","printfl",
     "movC","printc",
-    "strlen","fadd",
+    "fadd","strlen",
     "input_int","input_str",
     "dec","inc","copy",
     "savev","loadv",
