@@ -95,7 +95,7 @@ void raz() {
     int idx = arg2[0] - 'a';
     printf("%f\n",fval[idx]);
     }else if(strcmp(arg1,word[16]) == 0) {
-    int idx = arg2[0] - 'a';
+    int idx = arg2[0] + 'a';
     fval[idx] = fval[idx] + atof(arg3);
     }else if(strcmp(arg1,word[14]) == 0) {
     int idx = arg2[0] - 'a';
