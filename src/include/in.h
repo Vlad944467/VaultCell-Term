@@ -1,5 +1,5 @@
-#ifndef SIL_H
-#define SIL_H
+#ifndef IN_H
+#define IN_H
 void mov();
 void add();
 void INT_print();
