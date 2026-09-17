@@ -16,9 +16,7 @@
 #define pr printf
 #define CELL_SIZE 5000000
 #define mCELL_SIZE 10000000
-/*#define NULL ((void*)0)*/
-/*Три ячейки и каждые по 5.000.000 символов*/
-/*они в виртуальной памяти.*/
+//Ячейки 
 char inp1[CELL_SIZE];char inp2[CELL_SIZE];
 char inp3[CELL_SIZE];
 char ex[250];
