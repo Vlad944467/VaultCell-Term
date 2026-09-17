@@ -1,3 +1,4 @@
 #!/bin/bash
-gcc -o src/VaultCell src/CELL.c src/Pass.c src/Bcell.c src/SIL/SIL.c -Isrc/include
-./VaultCell
+mkdir -p bin
+gcc -o bin/VaultCell src/CELL.c src/Pass.c src/Bcell.c src/SIL/SIL.c -Isrc/include
+./bin/VaultCell
