@@ -2,4 +2,4 @@
 *.out
 VaultCell
 *.txt
-!docs/**/*.txt
+!docs/**/*.txt 
