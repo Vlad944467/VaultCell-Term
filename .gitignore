@@ -1,5 +1,5 @@
 *.o
 *.out
-VaultCell
+bin/
 *.txt
 !docs/**/*.txt 
