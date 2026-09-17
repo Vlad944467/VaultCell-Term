@@ -1,5 +1,6 @@
 *.o
 *.out
-bin/
+bin/*
+!bin/.gitkeep
 *.txt
-!docs/**/*.txt 
+!docs/**/*.txt
