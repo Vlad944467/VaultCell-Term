@@ -105,6 +105,7 @@ void IDE() {
                 char exch[10];
                 scanf("%9s", exch);
                 if(strcmp(exch,"EXIT")==0){ break;}
+                break;
             case 2:
                 printf("10 - Компелировать и запускать\n");
                 printf("20 - Выход\n\n");
